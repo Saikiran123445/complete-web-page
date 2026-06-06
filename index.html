@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSK Interiors</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f5f5f5; }
+    header { background:#111; color:#fff; padding:20px; text-align:center; }
+    nav { background:#333; padding:10px; text-align:center; position:sticky; top:0; }
+    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#ff9800; }
+    .hero { padding:60px; text-align:center; background:url('heroimage.jpg') no-repeat center/cover; color:white; }
+    .hero h2 { font-size:36px; }
+    .btn { background:#ff9800; padding:10px 20px; color:white; text-decoration:none; border-radius:5px; }
+    .section { padding:40px 20px; }
+    #services { background:linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url('services.section.jpg') no-repeat center/cover; background-attachment:fixed; min-height:500px; }
+    .services { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .card { background:white; padding:30px 20px; border-radius:10px; width:250px; box-shadow:0 4px 15px rgba(0,0,0,0.12); transition:all 0.3s ease; border-top:4px solid #ff9800; }
+    .card:hover { transform:translateY(-10px); box-shadow:0 12px 25px rgba(0,0,0,0.2); }
+    .card h3 { color:#ff9800; font-size:18px; margin-bottom:12px; font-weight:bold; }
+    .card p { color:#666; font-size:14px; line-height:1.6; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; }
+    .gallery img { width:100%; height:200px; object-fit:cover; border-radius:10px; }
+    .contact { background:#222; color:white; padding:30px; text-align:center; }
+    input, textarea { width:90%; padding:10px; margin:10px 0; border-radius:5px; border:none; }
+    button { padding:10px 20px; background:#ff9800; border:none; color:white; border-radius:5px; }
+    .whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; text-decoration:none; font-size:20px; }
+    footer { text-align:center; padding:10px; background:#111; color:#aaa; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>DSK Interiors</h1>
+  <p>25+ Years of Excellence in Interior Design</p>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+  <h2>Transforming Spaces into Beautiful Homes</h2>
+  <p>Modern | Elegant | Functional Designs</p>
+  <a class="btn" href="#contact">Get a Quote</a>
+</section>
+
+<section id="services" class="section">
+  <h2 style="text-align:center">Our Services</h2>
+  <div class="services">
+    <div class="card"><h3>Modular Kitchen</h3><p>Stylish and space-saving kitchen designs.</p></div>
+    <div class="card"><h3>Wardrobes</h3><p>Custom wardrobes for modern homes.</p></div>
+    <div class="card"><h3>Living Room</h3><p>Elegant and comfortable living spaces.</p></div>
+    <div class="card"><h3>Office Interiors</h3><p>Professional and productive office setups.</p></div>
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <h2 style="text-align:center">Our Work</h2>
+  <div class="gallery" id="galleryContainer"></div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Phone: 9652680012</p>
+  <p>Email: donthojusai24@gmail.com</p>
+
+  <h3>Send Inquiry</h3>
+  <form onsubmit="sendMessage(event)">
+    <input type="text" id="name" placeholder="Your Name" required><br>
+    <input type="tel" id="phone" placeholder="Your Phone" required><br>
+    <textarea id="message" placeholder="Your Requirement" required></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<a class="whatsapp" href="https://wa.me/919652680012" target="_blank">💬</a>
+
+<footer>
+  <p>© 2026 DSK Interiors. All rights reserved.</p>
+</footer>
+
+<script>
+  const images = [
+    "sai.jpgp.jpg",
+    "sai1.jpg",
+    "sai2.jpg",
+    "sai3.jpg",
+  ];
+
+  const gallery = document.getElementById('galleryContainer');
+  images.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    gallery.appendChild(img);
+  });
+
+  function sendMessage(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+
+    const url = `https://wa.me/919652680012?text=Name:%20${name}%0APhone:%20${phone}%0AMessage:%20${message}`;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
